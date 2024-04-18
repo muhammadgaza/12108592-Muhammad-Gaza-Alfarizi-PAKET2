@@ -55,6 +55,7 @@ class ProductController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
+
     public function edit($id)
     {
         $product = Product::find($id);
@@ -74,6 +75,12 @@ class ProductController extends Controller
         ]);
 
         return redirect('/dashboard/product')->with('success', 'Product updated successfully');
+    }
+
+    public function stockView($id)
+    {
+        $stokProuct = Product::find($id);
+        return view('pages.product.stok', compact('stokProuct'));
     }
 
     public function updateStock(Request $request, $id)
